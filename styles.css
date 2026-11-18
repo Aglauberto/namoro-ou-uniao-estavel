@@ -345,6 +345,7 @@ button { font: inherit; color: inherit; }
 .section { padding: 4rem 0; position: relative; }
 .section--cream { background: var(--cream-100); }
 .section--paper { background: var(--cream-50); }
+#conteudo.section { padding-top: 1rem; }
 .section--wine {
   color: var(--cream-50);
   background:
