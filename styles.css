@@ -706,7 +706,7 @@ button { font: inherit; color: inherit; }
 .footer {
   background: var(--wine-900);
   color: rgba(253,249,243,.62);
-  padding: 2.75rem 0 calc(6.5rem + env(safe-area-inset-bottom));
+  padding: 2.75rem 0 calc(2.75rem + env(safe-area-inset-bottom));
   text-align: center;
   font-size: .85rem;
 }

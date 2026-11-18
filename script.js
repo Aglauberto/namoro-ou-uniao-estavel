@@ -50,38 +50,12 @@ const CHECKOUT_URL = '';
   /* ---------- Barra superior: troca de material ao sair da hero ---------- */
   const topbar = document.getElementById('topbar');
   const hero = document.querySelector('.hero');
-  const heroCta = document.getElementById('hero-cta');
-  const dock = document.getElementById('dock');
-  const offer = document.getElementById('oferta');
-  const final = document.querySelector('.final');
-  const footer = document.getElementById('rodape');
 
-  const state = { heroGone: false, ctaGone: false, offerIn: false, finalIn: false, footerIn: false };
-
-  const updateDock = () => {
-    const show = state.ctaGone && !state.offerIn && !state.finalIn && !state.footerIn;
-    dock.classList.toggle('is-visible', show);
-    dock.setAttribute('aria-hidden', String(!show));
-    dock.querySelector('a').tabIndex = show ? 0 : -1;
-  };
-
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && topbar && hero) {
     const topH = () => topbar.offsetHeight;
-
     new IntersectionObserver(([e]) => {
-      state.heroGone = !e.isIntersecting;
-      topbar.classList.toggle('is-light', state.heroGone);
+      topbar.classList.toggle('is-light', !e.isIntersecting);
     }, { rootMargin: `-${topH()}px 0px 0px 0px` }).observe(hero);
-
-    const watch = (el, key) => new IntersectionObserver(([e]) => {
-      state[key] = key === 'ctaGone' ? (!e.isIntersecting && e.boundingClientRect.top < 0) : e.isIntersecting;
-      updateDock();
-    }, { threshold: 0 }).observe(el);
-
-    watch(heroCta, 'ctaGone');
-    watch(offer, 'offerIn');
-    watch(final, 'finalIn');
-    watch(footer, 'footerIn');
   }
 
   /* ---------- Identificação: perguntas tocáveis ---------- */
@@ -97,8 +71,8 @@ const CHECKOUT_URL = '';
       return;
     }
     status.innerHTML = n === 1
-      ? 'Você marcou 1 dúvida.<br>Ela é tratada no e-book.'
-      : `Você marcou ${n} de ${total} dúvidas.<br>Todas são tratadas no e-book.`;
+      ? 'Você marcou 1 dúvida.<br>Ela é tratada no guia prático.'
+      : `Você marcou ${n} de ${total} dúvidas.<br>Todas são tratadas no guia prático.`;
     status.classList.add('is-visible');
   };
 
