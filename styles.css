@@ -443,10 +443,15 @@ button { font: inherit; color: inherit; }
   transition: color 250ms;
 }
 .myth__hint {
-  display: inline-flex; align-items: center; gap: .4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
   margin-top: .85rem;
-  font-size: .875rem; font-weight: 650;
+  font-size: .875rem;
+  font-weight: 650;
   color: var(--wine-600);
+  width: 100%;
 }
 .myth__chev {
   width: .55rem; height: .55rem;
